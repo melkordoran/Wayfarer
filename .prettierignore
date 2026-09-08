@@ -1,0 +1,8 @@
+node_modules
+dist
+dist-electron
+release
+vendor
+.runtime
+public/assets
+build

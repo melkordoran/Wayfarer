@@ -1,0 +1,160 @@
+.social-tabs {
+  margin-bottom: 18px;
+}
+.social-tabs button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+}
+.social-pending {
+  color: #e8b980;
+  font-size: 21px;
+}
+.social-add {
+  align-items: end;
+  margin-bottom: 12px;
+}
+.social-add button {
+  margin-bottom: 1px;
+  white-space: nowrap;
+}
+.social-toolbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  margin: 12px 0;
+}
+.social-toolbar small {
+  color: #aab0b8;
+  font-size: 11px;
+  line-height: 1.6;
+}
+.social-contact-list,
+.social-message-list {
+  max-height: 300px;
+  overflow: auto;
+  overscroll-behavior: contain;
+}
+.social-contact {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 13px 2px;
+  border-bottom: 1px solid #ffffff0c;
+}
+.social-contact-name {
+  flex: 1;
+  min-width: 0;
+}
+.social-contact-name strong {
+  font-size: 13px;
+  font-weight: 500;
+}
+.social-contact-name small {
+  display: block;
+  font-size: 11px;
+  color: #9da6b2;
+  margin-top: 4px;
+  overflow-wrap: anywhere;
+}
+.social-state {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: #657181;
+  flex-shrink: 0;
+}
+.social-state-online {
+  background: #9cbda2;
+}
+.social-state-away {
+  background: #d7ae79;
+}
+.social-empty {
+  padding: 24px 10px;
+  color: #929daa;
+  text-align: center;
+  font-size: 12px;
+}
+.social-privacy,
+.social-confirm {
+  margin-top: 18px;
+  padding: 16px;
+  border: 1px solid #d7ae7938;
+  border-radius: 10px;
+  background: #d7ae7905;
+}
+.social-confirm p {
+  font-size: 12px;
+  line-height: 1.6;
+  color: #a9b0ba;
+}
+.social-notice {
+  font-size: 12px;
+  color: #b4c9b7;
+}
+.social-message {
+  margin: 8px 0;
+  padding: 13px 15px;
+  border: 1px solid #ffffff0d;
+  border-radius: 8px;
+  background: #ffffff03;
+}
+.social-message-outgoing {
+  border-left: 2px solid #d7ae7960;
+}
+.social-message-heading {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+}
+.social-message-heading strong {
+  font-size: 12px;
+  font-weight: 500;
+}
+.social-message-heading span {
+  font-size: 10px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  color: #d7ae79;
+}
+.social-message time {
+  display: block;
+  font-size: 10px;
+  color: #909ba9;
+  margin-top: 5px;
+}
+.social-message-text {
+  white-space: pre-wrap;
+  overflow-wrap: anywhere;
+  font-size: 12px;
+  line-height: 1.7;
+  color: #c9ced5;
+}
+.social-message .secondary-button {
+  font-size: 11px;
+}
+.social-compose {
+  border-top: 1px solid #ffffff0d;
+  padding-top: 16px;
+  margin-top: 16px;
+}
+.social-compose textarea {
+  resize: vertical;
+  min-height: 82px;
+  max-height: 180px;
+}
+.social-privacy .field-help {
+  margin-top: 0;
+}
+.social-confirm strong {
+  overflow-wrap: anywhere;
+}
+.social-close-confirm {
+  margin-top: 0;
+  margin-bottom: 18px;
+  border-color: #d7ae7960;
+}

@@ -1,0 +1,57 @@
+# Original Wayfarer fixture asset; CC0-1.0
+ModelBegin
+ClumpBegin
+Color 0.78 0.74 0.64
+Surface 0.5 0.7 0.05
+Vertex -0.57500 0.00000 -0.10000
+Vertex -0.42500 0.00000 -0.10000
+Vertex -0.42500 0.70000 -0.10000
+Vertex -0.57500 0.70000 -0.10000
+Vertex -0.57500 0.00000 0.10000
+Vertex -0.42500 0.00000 0.10000
+Vertex -0.42500 0.70000 0.10000
+Vertex -0.57500 0.70000 0.10000
+Quad 1 4 3 2
+Quad 5 6 7 8
+Quad 1 5 8 4
+Quad 2 3 7 6
+Quad 4 8 7 3
+Quad 1 2 6 5
+ClumpEnd
+ClumpBegin
+Color 0.78 0.74 0.64
+Surface 0.5 0.7 0.05
+Vertex 0.42500 0.00000 -0.10000
+Vertex 0.57500 0.00000 -0.10000
+Vertex 0.57500 0.70000 -0.10000
+Vertex 0.42500 0.70000 -0.10000
+Vertex 0.42500 0.00000 0.10000
+Vertex 0.57500 0.00000 0.10000
+Vertex 0.57500 0.70000 0.10000
+Vertex 0.42500 0.70000 0.10000
+Quad 1 4 3 2
+Quad 5 6 7 8
+Quad 1 5 8 4
+Quad 2 3 7 6
+Quad 4 8 7 3
+Quad 1 2 6 5
+ClumpEnd
+ClumpBegin
+Color 0.78 0.74 0.64
+Surface 0.5 0.7 0.05
+Vertex -0.60000 0.70000 -0.10000
+Vertex 0.60000 0.70000 -0.10000
+Vertex 0.60000 0.82000 -0.10000
+Vertex -0.60000 0.82000 -0.10000
+Vertex -0.60000 0.70000 0.10000
+Vertex 0.60000 0.70000 0.10000
+Vertex 0.60000 0.82000 0.10000
+Vertex -0.60000 0.82000 0.10000
+Quad 1 4 3 2
+Quad 5 6 7 8
+Quad 1 5 8 4
+Quad 2 3 7 6
+Quad 4 8 7 3
+Quad 1 2 6 5
+ClumpEnd
+ModelEnd

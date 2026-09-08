@@ -1,0 +1,27 @@
+.environment-source { display: flex; gap: 12px; align-items: center; padding: 14px; margin-bottom: 16px; border: 1px solid #43564b; border-radius: 10px; background: #25332d; color: #c5d2c8; }
+.environment-source > svg { flex: 0 0 auto; }
+.environment-source > span { flex: 1; min-width: 0; }
+.environment-source strong, .environment-source small { display: block; }
+.environment-source strong { font-size: 13px; font-weight: 500; }
+.environment-source small { font-size: 11px; line-height: 1.5; margin-top: 4px; color: #a9b9ad; }
+.environment-overridden { background: #392f22; border-color: #635139; }
+.environment-overridden small { color: #c9b99d; }
+.environment-source button { flex: 0 0 auto; white-space: nowrap; }
+.world-welcome { font-size: 12px; line-height: 1.7; white-space: pre-wrap; overflow-wrap: anywhere; max-height: 140px; overflow: auto; }
+.world-details-grid { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 17px 25px; }
+.world-details-grid section { min-width: 0; }
+.world-details-grid h3 { display: flex; align-items: center; gap: 9px; color: #d8bf97; font-size: 12px; font-weight: 500; margin: 5px 0 10px; }
+.world-details-grid dl { margin: 0; }
+.world-details-grid dl > div { display: grid; grid-template-columns: 1fr 1.05fr; gap: 12px; padding: 6px 0; border-bottom: 1px solid #ffffff08; font-size: 11px; line-height: 1.5; }
+.world-details-grid dt { color: var(--muted); }
+.world-details-grid dd { margin: 0; text-align: right; overflow-wrap: anywhere; }
+.world-color { display: inline-flex; align-items: center; gap: 6px; font-variant-numeric: tabular-nums; }
+.world-color i { display: inline-block; width: 11px; height: 11px; border: 1px solid #ffffff33; border-radius: 3px; }
+.world-object-path { display: grid; gap: 6px; margin-top: 18px; border-radius: 9px; border: 1px solid var(--border); padding: 12px; }
+.world-object-path strong { font-size: 11px; font-weight: 500; }
+.world-object-path span { font-size: 11px; overflow-wrap: anywhere; }
+.world-object-path small, .world-details-note { font-size: 10px; line-height: 1.7; color: var(--muted); }
+.world-details-note { margin: 15px 0; }
+.world-attribute-warnings { margin-top: 14px; font-size: 11px; line-height: 1.65; color: #dcc19e; }
+.world-attribute-warnings ul { padding-left: 18px; margin: 6px 0; max-height: 130px; overflow-y: auto; }
+@media (max-width: 650px) { .world-details-grid { grid-template-columns: 1fr; } .environment-source { flex-wrap: wrap; } }

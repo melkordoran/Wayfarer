@@ -1,0 +1,36 @@
+name: Bug report
+description: Report a reproducible Wayfarer problem without sharing private world data.
+body:
+  - type: markdown
+    attributes:
+      value: |
+        For suspected security vulnerabilities, use the private reporting link in SECURITY.md.
+        Do not include passwords, tokens, private universe addresses, object-path credentials, private chat or full QA profiles.
+  - type: input
+    id: version
+    attributes:
+      label: Wayfarer version and operating system
+      placeholder: 0.12.1-alpha.1, macOS, Apple Silicon
+    validations:
+      required: true
+  - type: dropdown
+    id: environment
+    attributes:
+      label: Environment
+      options:
+        - Offline Commons studio
+        - Disposable local Axis fixture
+        - Another authorized Axis world (omit private address)
+    validations:
+      required: true
+  - type: textarea
+    id: reproduce
+    attributes:
+      label: Steps, expected result and actual result
+    validations:
+      required: true
+  - type: textarea
+    id: evidence
+    attributes:
+      label: Sanitized evidence
+      description: A small original reproducer or redacted error is preferred. Attach only content you have permission to share.

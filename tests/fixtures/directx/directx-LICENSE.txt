@@ -1,0 +1,2 @@
+Original Wayfarer DirectX geometry, skin weights, numeric fixtures, texture pixels and catalog additions. CC0 1.0 Universal: https://creativecommons.org/publicdomain/zero/1.0/
+No Active Worlds or Microsoft sample assets are included. Source coordinates are right-handed and +Y up; fixture authoring units are not proof of historical AW unit scaling.

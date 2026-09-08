@@ -1,0 +1,23 @@
+# Original Wayfarer test skybox, CC0 1.0. Two metres wide with inward-facing walls.
+ModelBegin
+ClumpBegin
+TextureModes
+Collision off
+Color 1 1 1
+Texture tint.png mask stencil.png
+Vertex -.1 -.1 -.1 UV 0 0
+Vertex .1 -.1 -.1 UV 1 0
+Vertex .1 .1 -.1 UV 1 1
+Vertex -.1 .1 -.1 UV 0 1
+Vertex -.1 -.1 .1 UV 0 0
+Vertex .1 -.1 .1 UV 1 0
+Vertex .1 .1 .1 UV 1 1
+Vertex -.1 .1 .1 UV 0 1
+Quad 1 2 3 4
+Quad 5 8 7 6
+Quad 1 4 8 5
+Quad 2 6 7 3
+Quad 1 5 6 2
+Quad 4 3 7 8
+ClumpEnd
+ModelEnd

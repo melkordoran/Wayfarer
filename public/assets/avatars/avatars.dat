@@ -1,0 +1,34 @@
+# Original Wayfarer catalog, CC0 1.0. Both entries are independently authored.
+version 3
+avatar
+ name=Wayfarer Voyager
+ geometry=wf-voyager.rwx
+ autolook
+ autowalk
+ beginimp
+  idle=wf-idle
+  wait=wf-idle
+  endwait=wf-idle
+  walk=wf-walk
+  run=wf-walk
+ endimp
+ beginexp
+  Wave=wf-wave
+ endexp
+endavatar
+avatar
+ name=Haven Keeper
+ geometry=wf-keeper.rwx
+ autolook
+ autowalk
+ beginimp
+  idle=wf-idle
+  wait=wf-idle
+  endwait=wf-idle
+  walk=wf-walk
+  run=wf-walk
+ endimp
+ beginexp
+  Wave=wf-wave
+ endexp
+endavatar

@@ -1,0 +1,15 @@
+# Original Wayfarer test ground panel, CC0 1.0. The authored elevation is 0.2 metres.
+ModelBegin
+ClumpBegin
+Translate 0 .02 0
+TextureModes Lit
+Surface .4 .7 .1
+Color .8 .7 .5
+Texture tint.png
+Vertex -3 0 -3 UV 0 0
+Vertex -3 0 3 UV 0 1
+Vertex 3 0 3 UV 1 1
+Vertex 3 0 -3 UV 1 0
+Quad 1 2 3 4
+ClumpEnd
+ModelEnd

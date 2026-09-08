@@ -1,0 +1,35 @@
+.world-settings-intro { display: flex; align-items: center; gap: 10px; padding: 12px; color: #c5d2c8; background: #25332d; border: 1px solid #43564b; border-radius: 9px; font-size: 12px; line-height: 1.6; }
+.world-settings-intro svg, .world-settings-alert svg { flex: 0 0 auto; }
+.world-settings-tabs { display: flex; flex-wrap: wrap; gap: 5px; margin: 17px 0 14px; }
+.world-settings-tabs button { padding: 7px 10px; border: 1px solid var(--border); border-radius: 6px; background: transparent; color: var(--muted); font-size: 11px; }
+.world-settings-tabs button[aria-selected="true"] { color: #efcf9d; border-color: #8a6c43; background: #463725; }
+.world-settings-tabs button span { color: #e0b979; }
+.world-settings-panel { min-height: 235px; }
+.world-settings-fields { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 13px 17px; }
+.world-setting-field { min-width: 0; }
+.world-setting-field > label { display: flex; gap: 8px; align-items: center; color: #d8c9b3; margin-bottom: 6px; font-size: 12px; }
+.world-setting-wide { grid-column: 1 / -1; }
+.world-setting-dirty { color: #d4aa6d; font-size: 9px; text-transform: uppercase; letter-spacing: .05em; }
+.world-setting-field input, .world-setting-field select, .world-setting-field textarea { width: 100%; min-width: 0; padding: 9px 10px; border: 1px solid var(--border); border-radius: 6px; background: #191e1b; color: #e3e6dd; font: inherit; font-size: 12px; }
+.world-setting-field textarea { resize: vertical; min-height: 84px; max-height: 240px; line-height: 1.6; }
+.world-setting-field [aria-invalid="true"] { border-color: #d18b75; }
+.world-setting-field :disabled { opacity: .65; }
+.world-setting-input { display: flex; align-items: center; gap: 8px; }
+.world-setting-input > i { flex: 0 0 25px; height: 25px; border: 1px solid #ffffff33; border-radius: 5px; }
+.world-settings-help { margin: 6px 0; color: var(--muted); font-size: 10px; line-height: 1.65; overflow-wrap: anywhere; }
+.world-settings-field-error { margin: 6px 0; color: #f0b49f; font-size: 11px; line-height: 1.5; }
+.world-setting-current-path { display: grid; gap: 5px; padding: 9px 0; font-size: 11px; overflow-wrap: anywhere; }
+.world-setting-current-path strong { color: var(--muted); font-size: 10px; font-weight: 500; }
+.world-settings-alert { display: flex; align-items: flex-start; gap: 9px; padding: 12px; border: 1px solid #795947; background: #392a23; color: #e5bea3; border-radius: 7px; font-size: 12px; line-height: 1.6; }
+.world-setting-conflict { margin-top: 9px; padding: 10px; border: 1px solid #826044; border-radius: 7px; background: #3a2c22; font-size: 11px; line-height: 1.5; }
+.world-setting-conflict > strong, .world-setting-conflict > span, .world-setting-conflict > small { display: block; overflow-wrap: anywhere; }
+.world-setting-conflict > div, .world-settings-confirm > div { display: flex; flex-wrap: wrap; gap: 8px; margin: 9px 0; }
+.world-setting-conflict button { font-size: 10px; }
+.world-settings-message { display: flex; align-items: center; gap: 8px; font-size: 12px; line-height: 1.6; color: #d8bf97; }
+.world-settings-message.is-observed { color: #b9d4b9; }
+.world-settings-footer { position: sticky; bottom: -1px; display: flex; align-items: center; gap: 9px; padding: 15px 0 3px; margin-top: 14px; border-top: 1px solid var(--border); background: var(--panel, #242923); z-index: 1; }
+.world-settings-footer > span { flex: 1; font-size: 11px; color: var(--muted); }
+.world-settings-footer button { white-space: nowrap; }
+.world-settings-confirm { margin-top: 16px; padding: 15px; border: 1px solid #997048; background: #392c22; border-radius: 8px; font-size: 12px; line-height: 1.6; }
+.world-settings-confirm p { color: #d1c1ac; }
+@media (max-width: 650px) { .world-settings-fields { grid-template-columns: 1fr; } .world-settings-footer { flex-wrap: wrap; } .world-settings-footer > span { flex: 0 0 100%; } .world-settings-tabs button { flex: 1 0 auto; } }

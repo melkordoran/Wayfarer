@@ -1,0 +1,2 @@
+The original Wayfarer fixture models and haven.json in this directory are dedicated to the public domain under CC0 1.0 Universal: https://creativecommons.org/publicdomain/zero/1.0/
+No Active Worlds assets are included.

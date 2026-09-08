@@ -1,0 +1,26 @@
+# Original Wayfarer PRELIGHT comparison panels, dedicated to CC0 1.0.
+# World X from negative to positive: black (no added light), red, white (fully prelit).
+# Looking north (+Z), these appear white/red/black from screen left to right.
+# Authoring units are 10 metres; all faces point toward -Z.
+ModelBegin
+ClumpBegin
+TextureModes Lit
+Surface 1 1 0
+Color 1 1 1
+Vertex -.9 .15 0 UV 0 0 #! prelight 0 0 0
+Vertex -.9 .65 0 UV 0 1
+Vertex -.32 .65 0 UV 1 1
+Vertex -.32 .15 0 UV 1 0
+Quad 1 2 3 4
+VertexExt -.29 .15 0 UV 0 0 PRELIGHT 1 0 0
+VertexExt -.29 .65 0 UV 0 1
+VertexExt .29 .65 0 UV 1 1
+VertexExt .29 .15 0 UV 1 0
+Quad 5 6 7 8
+Vertex .32 .15 0 PRELIGHT 1 1 1 UV 0 0
+Vertex .32 .65 0 UV 0 1
+Vertex .9 .65 0 UV 1 1
+Vertex .9 .15 0 UV 1 0
+Quad 9 10 11 12
+ClumpEnd
+ModelEnd

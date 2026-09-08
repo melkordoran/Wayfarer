@@ -1,0 +1,9 @@
+The terrain0.png, terrain1.png, and terrain2.zip textures in this directory
+were created procedurally for Wayfarer, without external source images.
+
+To the extent possible under law, their authors dedicate these original
+texture assets to the public domain under CC0 1.0 Universal.
+https://creativecommons.org/publicdomain/zero/1.0/
+
+Reproduce them with:
+npx tsx src/renderer/engine/generate-terrain-fixture.ts

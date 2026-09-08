@@ -1,0 +1,31 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1024" height="1024" viewBox="0 0 1024 1024">
+  <title>Wayfarer compass</title>
+  <desc>An original warm brass compass on a dark slate rounded square.</desc>
+  <defs>
+    <linearGradient id="slate" x1="128" y1="80" x2="854" y2="958" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#303b44"/>
+      <stop offset="1" stop-color="#141d24"/>
+    </linearGradient>
+    <linearGradient id="brass" x1="273" y1="231" x2="755" y2="788" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#f0d7ad"/>
+      <stop offset="0.48" stop-color="#dfbb85"/>
+      <stop offset="1" stop-color="#ad8454"/>
+    </linearGradient>
+    <linearGradient id="needle" x1="675" y1="349" x2="458" y2="566" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#f4ddba"/>
+      <stop offset="1" stop-color="#d8ae76"/>
+    </linearGradient>
+  </defs>
+  <rect x="40" y="40" width="944" height="944" rx="218" fill="url(#slate)"/>
+  <rect x="52" y="52" width="920" height="920" rx="208" fill="none" stroke="#ffffff" stroke-opacity="0.06" stroke-width="4"/>
+  <circle cx="512" cy="516" r="298" fill="none" stroke="#10171d" stroke-opacity="0.35" stroke-width="25"/>
+  <circle cx="512" cy="512" r="286" fill="none" stroke="url(#brass)" stroke-width="24"/>
+  <circle cx="512" cy="512" r="240" fill="none" stroke="#d9b47e" stroke-opacity="0.12" stroke-width="3"/>
+  <path d="M512 248V281 M743 512H776 M512 743V776 M248 512H281" fill="none" stroke="#ddba87" stroke-width="16" stroke-linecap="round"/>
+  <path d="M677 347 567 567 347 677 457 457Z" fill="#182329" stroke="#141b20" stroke-opacity="0.25" stroke-width="14" stroke-linejoin="round"/>
+  <path d="M677 347 567 567 457 457Z" fill="url(#needle)"/>
+  <path d="M347 677 457 457 567 567Z" fill="#acb9b9"/>
+  <path d="M347 677 512 512 567 567Z" fill="#728887"/>
+  <circle cx="512" cy="512" r="26" fill="#26333a"/>
+  <circle cx="512" cy="512" r="10" fill="#e3c397"/>
+</svg>

@@ -1,0 +1,113 @@
+{
+  "name": "wayfarer-client",
+  "productName": "Wayfarer",
+  "version": "0.12.1-alpha.1",
+  "wayfarerNativeQa": 1,
+  "private": true,
+  "license": "MIT",
+  "description": "An independent desktop client for Axis virtual worlds",
+  "author": "Wayfarer contributors",
+  "homepage": "https://github.com/melkordoran/Wayfarer#readme",
+  "repository": { "type": "git", "url": "https://github.com/melkordoran/Wayfarer.git" },
+  "bugs": { "url": "https://github.com/melkordoran/Wayfarer/issues" },
+  "engines": { "node": ">=22.12.0" },
+  "type": "module",
+  "main": "dist-electron/main.cjs",
+  "scripts": {
+    "axis:bootstrap": "node scripts/axis-bootstrap.mjs",
+    "axis:start": "node scripts/axis-start.mjs",
+    "axis:stop": "node scripts/axis-stop.mjs",
+    "axis:status": "node scripts/axis-status.mjs",
+    "axis:smoke": "tsx scripts/axis-smoke.ts",
+    "axis:mutation-smoke": "tsx scripts/axis-mutation-smoke.ts",
+    "axis:social-smoke": "tsx scripts/axis-social-smoke.ts",
+    "bridge:smoke": "tsx scripts/bridge-smoke.ts",
+    "native:smoke": "npm run build && electron scripts/native-smoke.cjs",
+    "build:icon": "node scripts/build-icon.mjs",
+    "format": "prettier --write src scripts tests docs README.md",
+    "dev": "concurrently -k -n ui,bridge \"vite --host 127.0.0.1\" \"tsx scripts/bridge.ts\"",
+    "desktop": "npm run build:desktop && electron .",
+    "desktop:dev": "npm run build:desktop && WAYFARER_DEV=1 electron .",
+    "build:desktop": "esbuild src/main/main.ts --bundle --platform=node --format=cjs --external:electron --outfile=dist-electron/main.cjs && esbuild src/main/preload.ts --bundle --platform=node --format=cjs --external:electron --outfile=dist-electron/preload.cjs && npm run verify:runtime",
+    "verify:runtime": "tsx scripts/check-runtime-deps.ts",
+    "verify:public": "node scripts/audit-public-tree.mjs",
+    "typecheck": "tsc --noEmit",
+    "build": "npm run typecheck && vite build && npm run build:desktop",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "package:mac": "npm run build && electron-builder --mac dir",
+    "package:windows": "npm run build && electron-builder --win --x64",
+    "preview": "vite preview --host 127.0.0.1"
+  },
+  "build": {
+    "appId": "org.wayfarer.client",
+    "productName": "Wayfarer",
+    "directories": {
+      "output": "release"
+    },
+    "files": [
+      "dist/**/*",
+      "dist-electron/**/*",
+      "package.json",
+      "LICENSE",
+      "THIRD_PARTY_NOTICES.md",
+      "!node_modules/**/*"
+    ],
+    "extraResources": [
+      { "from": "node_modules/electron/dist/LICENSE", "to": "licenses/LICENSE.electron.txt" },
+      { "from": "node_modules/electron/dist/LICENSES.chromium.html", "to": "licenses/LICENSES.chromium.html" },
+      { "from": "build/licenses/LICENSE.Mantle.txt", "to": "licenses/LICENSE.Mantle.txt" },
+      { "from": "build/licenses/LICENSE.ReactiveObjC.txt", "to": "licenses/LICENSE.ReactiveObjC.txt" }
+    ],
+    "mac": {
+      "identity": "-",
+      "icon": "build/icon.icns",
+      "category": "public.app-category.social-networking",
+      "target": [
+        "dir",
+        "dmg"
+      ]
+    },
+    "win": {
+      "icon": "build/icon.ico",
+      "target": [
+        "nsis"
+      ]
+    },
+    "linux": {
+      "icon": "build/icon.png",
+      "target": [
+        "AppImage"
+      ]
+    }
+  },
+  "dependencies": {
+    "fflate": "^0.8.3",
+    "lucide-react": "^1.41.0",
+    "react": "^19.2.8",
+    "react-dom": "^19.2.8",
+    "three": "^0.185.1",
+    "ws": "^8.21.3"
+  },
+  "devDependencies": {
+    "@resvg/resvg-js": "^2.6.2",
+    "@testing-library/react": "^16.3.3",
+    "@testing-library/user-event": "^14.6.7",
+    "@types/node": "^26.4.1",
+    "@types/react": "^19.2.18",
+    "@types/react-dom": "^19.2.7",
+    "@types/three": "^0.185.4",
+    "@types/ws": "^8.18.1",
+    "@vitejs/plugin-react": "^6.1.1",
+    "concurrently": "^10.0.5",
+    "electron": "^44.2.0",
+    "electron-builder": "^26.15.3",
+    "esbuild": "^0.28.2",
+    "jsdom": "^30.0.1",
+    "prettier": "^3.9.6",
+    "tsx": "^4.23.13",
+    "typescript": "^7.0.2",
+    "vite": "^8.2.2",
+    "vitest": "^5.0.0"
+  }
+}

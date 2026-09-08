@@ -1,0 +1,294 @@
+{
+  "license": "CC0-1.0",
+  "units": "centimetres; angles tenths of degrees",
+  "objects": [
+    {
+      "model": "ground.rwx",
+      "x": 0,
+      "y": 0,
+      "z": 0,
+      "yaw": 0,
+      "description": "",
+      "action": ""
+    },
+    {
+      "model": "plaza.rwx",
+      "x": 0,
+      "y": 0,
+      "z": 200,
+      "yaw": 0,
+      "description": "",
+      "action": ""
+    },
+    {
+      "model": "sculpture.rwx",
+      "x": 0,
+      "y": 0,
+      "z": 800,
+      "yaw": 0,
+      "description": "The beginning — an original Wayfarer sculpture",
+      "action": ""
+    },
+    {
+      "model": "arch.rwx",
+      "x": 0,
+      "y": 0,
+      "z": 3100,
+      "yaw": 0,
+      "description": "Haven gateway",
+      "action": ""
+    },
+    {
+      "model": "tree.rwx",
+      "x": -2200,
+      "y": 0,
+      "z": -2000,
+      "yaw": 0,
+      "description": "",
+      "action": ""
+    },
+    {
+      "model": "tree.rwx",
+      "x": -2200,
+      "y": 0,
+      "z": -800,
+      "yaw": 0,
+      "description": "",
+      "action": ""
+    },
+    {
+      "model": "tree.rwx",
+      "x": -2200,
+      "y": 0,
+      "z": 400,
+      "yaw": 0,
+      "description": "",
+      "action": ""
+    },
+    {
+      "model": "tree.rwx",
+      "x": -2200,
+      "y": 0,
+      "z": 1600,
+      "yaw": 0,
+      "description": "",
+      "action": ""
+    },
+    {
+      "model": "tree.rwx",
+      "x": -2200,
+      "y": 0,
+      "z": 2800,
+      "yaw": 0,
+      "description": "",
+      "action": ""
+    },
+    {
+      "model": "tree.rwx",
+      "x": -2200,
+      "y": 0,
+      "z": 4000,
+      "yaw": 0,
+      "description": "",
+      "action": ""
+    },
+    {
+      "model": "tree.rwx",
+      "x": 2200,
+      "y": 0,
+      "z": -2000,
+      "yaw": 0,
+      "description": "",
+      "action": ""
+    },
+    {
+      "model": "tree.rwx",
+      "x": 2200,
+      "y": 0,
+      "z": -800,
+      "yaw": 0,
+      "description": "",
+      "action": ""
+    },
+    {
+      "model": "tree.rwx",
+      "x": 2200,
+      "y": 0,
+      "z": 400,
+      "yaw": 0,
+      "description": "",
+      "action": ""
+    },
+    {
+      "model": "tree.rwx",
+      "x": 2200,
+      "y": 0,
+      "z": 1600,
+      "yaw": 0,
+      "description": "",
+      "action": ""
+    },
+    {
+      "model": "tree.rwx",
+      "x": 2200,
+      "y": 0,
+      "z": 2800,
+      "yaw": 0,
+      "description": "",
+      "action": ""
+    },
+    {
+      "model": "tree.rwx",
+      "x": 2200,
+      "y": 0,
+      "z": 4000,
+      "yaw": 0,
+      "description": "",
+      "action": ""
+    },
+    {
+      "model": "bench.rwx",
+      "x": -1500,
+      "y": 0,
+      "z": -1200,
+      "yaw": 900,
+      "description": "",
+      "action": ""
+    },
+    {
+      "model": "bench.rwx",
+      "x": -1500,
+      "y": 0,
+      "z": 400,
+      "yaw": 900,
+      "description": "",
+      "action": ""
+    },
+    {
+      "model": "bench.rwx",
+      "x": -1500,
+      "y": 0,
+      "z": 2000,
+      "yaw": 900,
+      "description": "",
+      "action": ""
+    },
+    {
+      "model": "bench.rwx",
+      "x": 1500,
+      "y": 0,
+      "z": -1200,
+      "yaw": -900,
+      "description": "",
+      "action": ""
+    },
+    {
+      "model": "bench.rwx",
+      "x": 1500,
+      "y": 0,
+      "z": 400,
+      "yaw": -900,
+      "description": "",
+      "action": ""
+    },
+    {
+      "model": "bench.rwx",
+      "x": 1500,
+      "y": 0,
+      "z": 2000,
+      "yaw": -900,
+      "description": "",
+      "action": ""
+    },
+    {
+      "model": "lamp.rwx",
+      "x": -1700,
+      "y": 0,
+      "z": -1900,
+      "yaw": 0,
+      "description": "",
+      "action": ""
+    },
+    {
+      "model": "lamp.rwx",
+      "x": -1700,
+      "y": 0,
+      "z": -300,
+      "yaw": 0,
+      "description": "",
+      "action": ""
+    },
+    {
+      "model": "lamp.rwx",
+      "x": -1700,
+      "y": 0,
+      "z": 1300,
+      "yaw": 0,
+      "description": "",
+      "action": ""
+    },
+    {
+      "model": "lamp.rwx",
+      "x": -1700,
+      "y": 0,
+      "z": 2900,
+      "yaw": 0,
+      "description": "",
+      "action": ""
+    },
+    {
+      "model": "lamp.rwx",
+      "x": 1700,
+      "y": 0,
+      "z": -1900,
+      "yaw": 0,
+      "description": "",
+      "action": ""
+    },
+    {
+      "model": "lamp.rwx",
+      "x": 1700,
+      "y": 0,
+      "z": -300,
+      "yaw": 0,
+      "description": "",
+      "action": ""
+    },
+    {
+      "model": "lamp.rwx",
+      "x": 1700,
+      "y": 0,
+      "z": 1300,
+      "yaw": 0,
+      "description": "",
+      "action": ""
+    },
+    {
+      "model": "lamp.rwx",
+      "x": 1700,
+      "y": 0,
+      "z": 2900,
+      "yaw": 0,
+      "description": "",
+      "action": ""
+    },
+    {
+      "model": "column.rwx",
+      "x": -900,
+      "y": 0,
+      "z": 3100,
+      "yaw": 0,
+      "description": "",
+      "action": ""
+    },
+    {
+      "model": "column.rwx",
+      "x": 900,
+      "y": 0,
+      "z": 3100,
+      "yaw": 0,
+      "description": "",
+      "action": ""
+    }
+  ]
+}

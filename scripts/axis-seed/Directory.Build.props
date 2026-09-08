@@ -1,0 +1,6 @@
+<Project>
+  <PropertyGroup>
+    <BaseIntermediateOutputPath>$(MSBuildThisFileDirectory)../../.runtime/axis/seed-obj/</BaseIntermediateOutputPath>
+    <BaseOutputPath>$(MSBuildThisFileDirectory)../../.runtime/axis/seed-bin/</BaseOutputPath>
+  </PropertyGroup>
+</Project>

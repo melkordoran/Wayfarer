@@ -1,0 +1,445 @@
+# Original Wayfarer rigid-clump avatar. CC0 1.0.
+ModelBegin
+TextureModes Lit
+LightSampling Facet
+Surface .4 .7 .1
+ClumpBegin
+Translate 0 0.095 0
+Tag 1
+Color 0.12 0.18 0.25
+Vertex -0.017 -0.011 -0.012
+Vertex 0.017 -0.011 -0.012
+Vertex 0.017 0.011 -0.012
+Vertex -0.017 0.011 -0.012
+Vertex -0.017 -0.011 0.012
+Vertex 0.017 -0.011 0.012
+Vertex 0.017 0.011 0.012
+Vertex -0.017 0.011 0.012
+Quad 1 4 3 2
+Quad 5 6 7 8
+Quad 1 5 8 4
+Quad 2 3 7 6
+Quad 4 8 7 3
+Quad 1 2 6 5
+Color 0.05 0.18 0.25
+Vertex -0.0175 0.00525 -0.012
+Vertex 0.0175 0.00525 -0.012
+Vertex 0.0175 0.00975 -0.012
+Vertex -0.0175 0.00975 -0.012
+Vertex -0.0175 0.00525 0.013
+Vertex 0.0175 0.00525 0.013
+Vertex 0.0175 0.00975 0.013
+Vertex -0.0175 0.00975 0.013
+Quad 9 12 11 10
+Quad 13 14 15 16
+Quad 9 13 16 12
+Quad 10 11 15 14
+Quad 12 16 15 11
+Quad 9 10 14 13
+ClumpBegin
+Translate 0 0.012 0
+Tag 2
+Color 0.08 0.4 0.48
+Vertex -0.02 -0.001 -0.0125
+Vertex 0.02 -0.001 -0.0125
+Vertex 0.02 0.039 -0.0125
+Vertex -0.02 0.039 -0.0125
+Vertex -0.02 -0.001 0.0125
+Vertex 0.02 -0.001 0.0125
+Vertex 0.02 0.039 0.0125
+Vertex -0.02 0.039 0.0125
+Quad 1 4 3 2
+Quad 5 6 7 8
+Quad 1 5 8 4
+Quad 2 3 7 6
+Quad 4 8 7 3
+Quad 1 2 6 5
+Color 0.05 0.18 0.25
+Vertex -0.0014 0.003 0.01225
+Vertex 0.0014 0.003 0.01225
+Vertex 0.0014 0.037 0.01225
+Vertex -0.0014 0.037 0.01225
+Vertex -0.0014 0.003 0.01375
+Vertex 0.0014 0.003 0.01375
+Vertex 0.0014 0.037 0.01375
+Vertex -0.0014 0.037 0.01375
+Quad 9 12 11 10
+Quad 13 14 15 16
+Quad 9 13 16 12
+Quad 10 11 15 14
+Quad 12 16 15 11
+Quad 9 10 14 13
+Color 1 0.84 0.4
+Vertex 0.0065 0.02575 0.0126
+Vertex 0.0135 0.02575 0.0126
+Vertex 0.0135 0.03025 0.0126
+Vertex 0.0065 0.03025 0.0126
+Vertex 0.0065 0.02575 0.0144
+Vertex 0.0135 0.02575 0.0144
+Vertex 0.0135 0.03025 0.0144
+Vertex 0.0065 0.03025 0.0144
+Quad 17 20 19 18
+Quad 21 22 23 24
+Quad 17 21 24 20
+Quad 18 19 23 22
+Quad 20 24 23 19
+Quad 17 18 22 21
+ClumpBegin
+Translate 0 0.044 0
+Tag 3
+Color 0.75 0.47 0.31
+Vertex -0.0065 -0.004 -0.0065
+Vertex 0.0065 -0.004 -0.0065
+Vertex 0.0065 0.006 -0.0065
+Vertex -0.0065 0.006 -0.0065
+Vertex -0.0065 -0.004 0.0065
+Vertex 0.0065 -0.004 0.0065
+Vertex 0.0065 0.006 0.0065
+Vertex -0.0065 0.006 0.0065
+Quad 1 4 3 2
+Quad 5 6 7 8
+Quad 1 5 8 4
+Quad 2 3 7 6
+Quad 4 8 7 3
+Quad 1 2 6 5
+ClumpBegin
+Translate 0 0.006 0
+Tag 4
+Color 0.75 0.47 0.31
+Vertex -0.013 -0.003 -0.0125
+Vertex 0.013 -0.003 -0.0125
+Vertex 0.013 0.027 -0.0125
+Vertex -0.013 0.027 -0.0125
+Vertex -0.013 -0.003 0.0125
+Vertex 0.013 -0.003 0.0125
+Vertex 0.013 0.027 0.0125
+Vertex -0.013 0.027 0.0125
+Quad 1 4 3 2
+Quad 5 6 7 8
+Quad 1 5 8 4
+Quad 2 3 7 6
+Quad 4 8 7 3
+Quad 1 2 6 5
+Color 0.1 0.065 0.055
+Vertex -0.014 0.022 -0.0147
+Vertex 0.014 0.022 -0.0147
+Vertex 0.014 0.03 -0.0147
+Vertex -0.014 0.03 -0.0147
+Vertex -0.014 0.022 0.0123
+Vertex 0.014 0.022 0.0123
+Vertex 0.014 0.03 0.0123
+Vertex -0.014 0.03 0.0123
+Quad 9 12 11 10
+Quad 13 14 15 16
+Quad 9 13 16 12
+Quad 10 11 15 14
+Quad 12 16 15 11
+Quad 9 10 14 13
+Color 0.08 0.11 0.16
+Vertex -0.00765 0.01345 0.01215
+Vertex -0.00415 0.01345 0.01215
+Vertex -0.00415 0.01655 0.01215
+Vertex -0.00765 0.01655 0.01215
+Vertex -0.00765 0.01345 0.01345
+Vertex -0.00415 0.01345 0.01345
+Vertex -0.00415 0.01655 0.01345
+Vertex -0.00765 0.01655 0.01345
+Quad 17 20 19 18
+Quad 21 22 23 24
+Quad 17 21 24 20
+Quad 18 19 23 22
+Quad 20 24 23 19
+Quad 17 18 22 21
+Color 0.08 0.11 0.16
+Vertex 0.00415 0.01345 0.01215
+Vertex 0.00765 0.01345 0.01215
+Vertex 0.00765 0.01655 0.01215
+Vertex 0.00415 0.01655 0.01215
+Vertex 0.00415 0.01345 0.01345
+Vertex 0.00765 0.01345 0.01345
+Vertex 0.00765 0.01655 0.01345
+Vertex 0.00415 0.01655 0.01345
+Quad 25 28 27 26
+Quad 29 30 31 32
+Quad 25 29 32 28
+Quad 26 27 31 30
+Quad 28 32 31 27
+Quad 25 26 30 29
+Color 0.44 0.22 0.16
+Vertex -0.0036 0.0059 0.0121
+Vertex 0.0036 0.0059 0.0121
+Vertex 0.0036 0.0071 0.0121
+Vertex -0.0036 0.0071 0.0121
+Vertex -0.0036 0.0059 0.0135
+Vertex 0.0036 0.0059 0.0135
+Vertex 0.0036 0.0071 0.0135
+Vertex -0.0036 0.0071 0.0135
+Quad 33 36 35 34
+Quad 37 38 39 40
+Quad 33 37 40 36
+Quad 34 35 39 38
+Quad 36 40 39 35
+Quad 33 34 38 37
+ClumpEnd
+ClumpEnd
+ClumpBegin
+Translate -0.0255 0.035 0
+Tag 6
+Color 0.08 0.4 0.48
+Vertex -0.008 -0.0275 -0.009
+Vertex 0.008 -0.0275 -0.009
+Vertex 0.008 0.0005 -0.009
+Vertex -0.008 0.0005 -0.009
+Vertex -0.008 -0.0275 0.009
+Vertex 0.008 -0.0275 0.009
+Vertex 0.008 0.0005 0.009
+Vertex -0.008 0.0005 0.009
+Quad 1 4 3 2
+Quad 5 6 7 8
+Quad 1 5 8 4
+Quad 2 3 7 6
+Quad 4 8 7 3
+Quad 1 2 6 5
+ClumpBegin
+Translate 0 -0.028 0
+Tag 7
+Color 0.08 0.4 0.48
+Vertex -0.0065 -0.025 -0.0075
+Vertex 0.0065 -0.025 -0.0075
+Vertex 0.0065 0 -0.0075
+Vertex -0.0065 0 -0.0075
+Vertex -0.0065 -0.025 0.0075
+Vertex 0.0065 -0.025 0.0075
+Vertex 0.0065 0 0.0075
+Vertex -0.0065 0 0.0075
+Quad 1 4 3 2
+Quad 5 6 7 8
+Quad 1 5 8 4
+Quad 2 3 7 6
+Quad 4 8 7 3
+Quad 1 2 6 5
+Color 0.05 0.18 0.25
+Vertex -0.007 -0.025 -0.008
+Vertex 0.007 -0.025 -0.008
+Vertex 0.007 -0.021 -0.008
+Vertex -0.007 -0.021 -0.008
+Vertex -0.007 -0.025 0.008
+Vertex 0.007 -0.025 0.008
+Vertex 0.007 -0.021 0.008
+Vertex -0.007 -0.021 0.008
+Quad 9 12 11 10
+Quad 13 14 15 16
+Quad 9 13 16 12
+Quad 10 11 15 14
+Quad 12 16 15 11
+Quad 9 10 14 13
+ClumpBegin
+Translate 0 -0.0275 0
+Tag 8
+Color 0.75 0.47 0.31
+Vertex -0.00675 -0.01 -0.007
+Vertex 0.00675 -0.01 -0.007
+Vertex 0.00675 0.003 -0.007
+Vertex -0.00675 0.003 -0.007
+Vertex -0.00675 -0.01 0.007
+Vertex 0.00675 -0.01 0.007
+Vertex 0.00675 0.003 0.007
+Vertex -0.00675 0.003 0.007
+Quad 1 4 3 2
+Quad 5 6 7 8
+Quad 1 5 8 4
+Quad 2 3 7 6
+Quad 4 8 7 3
+Quad 1 2 6 5
+ClumpEnd
+ClumpEnd
+ClumpEnd
+ClumpBegin
+Translate 0.0255 0.035 0
+Tag 11
+Color 0.08 0.4 0.48
+Vertex -0.008 -0.0275 -0.009
+Vertex 0.008 -0.0275 -0.009
+Vertex 0.008 0.0005 -0.009
+Vertex -0.008 0.0005 -0.009
+Vertex -0.008 -0.0275 0.009
+Vertex 0.008 -0.0275 0.009
+Vertex 0.008 0.0005 0.009
+Vertex -0.008 0.0005 0.009
+Quad 1 4 3 2
+Quad 5 6 7 8
+Quad 1 5 8 4
+Quad 2 3 7 6
+Quad 4 8 7 3
+Quad 1 2 6 5
+ClumpBegin
+Translate 0 -0.028 0
+Tag 12
+Color 0.08 0.4 0.48
+Vertex -0.0065 -0.025 -0.0075
+Vertex 0.0065 -0.025 -0.0075
+Vertex 0.0065 0 -0.0075
+Vertex -0.0065 0 -0.0075
+Vertex -0.0065 -0.025 0.0075
+Vertex 0.0065 -0.025 0.0075
+Vertex 0.0065 0 0.0075
+Vertex -0.0065 0 0.0075
+Quad 1 4 3 2
+Quad 5 6 7 8
+Quad 1 5 8 4
+Quad 2 3 7 6
+Quad 4 8 7 3
+Quad 1 2 6 5
+Color 0.05 0.18 0.25
+Vertex -0.007 -0.025 -0.008
+Vertex 0.007 -0.025 -0.008
+Vertex 0.007 -0.021 -0.008
+Vertex -0.007 -0.021 -0.008
+Vertex -0.007 -0.025 0.008
+Vertex 0.007 -0.025 0.008
+Vertex 0.007 -0.021 0.008
+Vertex -0.007 -0.021 0.008
+Quad 9 12 11 10
+Quad 13 14 15 16
+Quad 9 13 16 12
+Quad 10 11 15 14
+Quad 12 16 15 11
+Quad 9 10 14 13
+ClumpBegin
+Translate 0 -0.0275 0
+Tag 13
+Color 0.75 0.47 0.31
+Vertex -0.00675 -0.01 -0.007
+Vertex 0.00675 -0.01 -0.007
+Vertex 0.00675 0.003 -0.007
+Vertex -0.00675 0.003 -0.007
+Vertex -0.00675 -0.01 0.007
+Vertex 0.00675 -0.01 0.007
+Vertex 0.00675 0.003 0.007
+Vertex -0.00675 0.003 0.007
+Quad 1 4 3 2
+Quad 5 6 7 8
+Quad 1 5 8 4
+Quad 2 3 7 6
+Quad 4 8 7 3
+Quad 1 2 6 5
+ClumpEnd
+ClumpEnd
+ClumpEnd
+ClumpEnd
+ClumpBegin
+Translate -0.0105 -0.009 0
+Tag 15
+Color 0.12 0.18 0.25
+Vertex -0.00775 -0.0375 -0.0095
+Vertex 0.00775 -0.0375 -0.0095
+Vertex 0.00775 0.0005 -0.0095
+Vertex -0.00775 0.0005 -0.0095
+Vertex -0.00775 -0.0375 0.0095
+Vertex 0.00775 -0.0375 0.0095
+Vertex 0.00775 0.0005 0.0095
+Vertex -0.00775 0.0005 0.0095
+Quad 1 4 3 2
+Quad 5 6 7 8
+Quad 1 5 8 4
+Quad 2 3 7 6
+Quad 4 8 7 3
+Quad 1 2 6 5
+ClumpBegin
+Translate 0 -0.038 0
+Tag 16
+Color 0.12 0.18 0.25
+Vertex -0.00725 -0.0365 -0.0085
+Vertex 0.00725 -0.0365 -0.0085
+Vertex 0.00725 0.0005 -0.0085
+Vertex -0.00725 0.0005 -0.0085
+Vertex -0.00725 -0.0365 0.0085
+Vertex 0.00725 -0.0365 0.0085
+Vertex 0.00725 0.0005 0.0085
+Vertex -0.00725 0.0005 0.0085
+Quad 1 4 3 2
+Quad 5 6 7 8
+Quad 1 5 8 4
+Quad 2 3 7 6
+Quad 4 8 7 3
+Quad 1 2 6 5
+ClumpBegin
+Translate 0 -0.038 0
+Tag 17
+Color 0.045 0.07 0.09
+Vertex -0.0085 -0.00925 -0.0095
+Vertex 0.0085 -0.00925 -0.0095
+Vertex 0.0085 0.00025 -0.0095
+Vertex -0.0085 0.00025 -0.0095
+Vertex -0.0085 -0.00925 0.0185
+Vertex 0.0085 -0.00925 0.0185
+Vertex 0.0085 0.00025 0.0185
+Vertex -0.0085 0.00025 0.0185
+Quad 1 4 3 2
+Quad 5 6 7 8
+Quad 1 5 8 4
+Quad 2 3 7 6
+Quad 4 8 7 3
+Quad 1 2 6 5
+ClumpEnd
+ClumpEnd
+ClumpEnd
+ClumpBegin
+Translate 0.0105 -0.009 0
+Tag 19
+Color 0.12 0.18 0.25
+Vertex -0.00775 -0.0375 -0.0095
+Vertex 0.00775 -0.0375 -0.0095
+Vertex 0.00775 0.0005 -0.0095
+Vertex -0.00775 0.0005 -0.0095
+Vertex -0.00775 -0.0375 0.0095
+Vertex 0.00775 -0.0375 0.0095
+Vertex 0.00775 0.0005 0.0095
+Vertex -0.00775 0.0005 0.0095
+Quad 1 4 3 2
+Quad 5 6 7 8
+Quad 1 5 8 4
+Quad 2 3 7 6
+Quad 4 8 7 3
+Quad 1 2 6 5
+ClumpBegin
+Translate 0 -0.038 0
+Tag 20
+Color 0.12 0.18 0.25
+Vertex -0.00725 -0.0365 -0.0085
+Vertex 0.00725 -0.0365 -0.0085
+Vertex 0.00725 0.0005 -0.0085
+Vertex -0.00725 0.0005 -0.0085
+Vertex -0.00725 -0.0365 0.0085
+Vertex 0.00725 -0.0365 0.0085
+Vertex 0.00725 0.0005 0.0085
+Vertex -0.00725 0.0005 0.0085
+Quad 1 4 3 2
+Quad 5 6 7 8
+Quad 1 5 8 4
+Quad 2 3 7 6
+Quad 4 8 7 3
+Quad 1 2 6 5
+ClumpBegin
+Translate 0 -0.038 0
+Tag 21
+Color 0.045 0.07 0.09
+Vertex -0.0085 -0.00925 -0.0095
+Vertex 0.0085 -0.00925 -0.0095
+Vertex 0.0085 0.00025 -0.0095
+Vertex -0.0085 0.00025 -0.0095
+Vertex -0.0085 -0.00925 0.0185
+Vertex 0.0085 -0.00925 0.0185
+Vertex 0.0085 0.00025 0.0185
+Vertex -0.0085 0.00025 0.0185
+Quad 1 4 3 2
+Quad 5 6 7 8
+Quad 1 5 8 4
+Quad 2 3 7 6
+Quad 4 8 7 3
+Quad 1 2 6 5
+ClumpEnd
+ClumpEnd
+ClumpEnd
+ClumpEnd
+ModelEnd
