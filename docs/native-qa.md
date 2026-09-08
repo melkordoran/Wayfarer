@@ -7,13 +7,13 @@ application path is inferred.
 
 ```sh
 # Fresh independent Axis services and native profile:
-npx tsx scripts/axis-isolated-native.ts release/0.12.1-alpha.1/mac-arm64/Wayfarer.app
+npx tsx scripts/axis-isolated-native.ts release/0.12.1-alpha.2/mac-arm64/Wayfarer.app
 
 # Same, with the separate fixture's movement-restriction profile:
-npx tsx scripts/axis-isolated-native.ts release/0.12.1-alpha.1/mac-arm64/Wayfarer.app --restricted
+npx tsx scripts/axis-isolated-native.ts release/0.12.1-alpha.2/mac-arm64/Wayfarer.app --restricted
 
 # Native offline interaction only: no Axis preparation, import, or listener:
-npx tsx scripts/axis-isolated-native.ts release/0.12.1-alpha.1/mac-arm64/Wayfarer.app --offline
+npx tsx scripts/axis-isolated-native.ts release/0.12.1-alpha.2/mac-arm64/Wayfarer.app --offline
 ```
 
 The selected version must equal the current source/build version. The commands

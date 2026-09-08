@@ -5,7 +5,51 @@ do not establish official Active Worlds compatibility, arbitrary-world fidelity
 or a security certification. Raw profiles, private connection details and local
 service records are intentionally excluded from the public repository.
 
-## Public prerelease: 0.12.1-alpha.1
+## Public prerelease: 0.12.1-alpha.2
+
+The final source passed **2,503 tests in 103 files** on macOS Apple Silicon
+using official Node 22.22.2 with bundled zlib 1.3.1-e00f703. TypeScript,
+production build, runtime dependency boundary, public-tree audit and whitespace
+checks passed; the production dependency audit reported zero vulnerabilities.
+The compression and animation fixture suites also passed under the local
+zlib 1.2.12 build. No runtime/parser source or security bound was changed.
+
+The six initial Linux CI failures came from assuming a canonical native zlib
+encoding: some valid raw DEFLATE output exceeded MSZIP fixture bounds, a tiny
+fixture could be larger compressed than expanded, and generated animation
+streams differed byte-for-byte. Tests now construct bounded valid envelopes
+and independent input/output-budget witnesses. Original animation streams are
+pinned and checked against authored-body hashes and independent inflation.
+The original Studio bundle remains unchanged with SHA-256
+`da69d14f57f1722eb8f4d6d3a787e956c2b9b77762428346ea9e5996f6d8ebfa`.
+
+An independently refreshed clean source checkout passed the same 2,503 tests,
+typecheck and public audit. Its 38 production build files matched the main
+build byte-for-byte. GitHub CI records the Linux results for the corresponding
+published source commit.
+
+### Alpha.2 packaged offline check
+
+The exact macOS arm64 Electron 44.2.0 package passed strict/deep ad-hoc signature
+verification, all 38 build-byte comparisons and all ten notice checks. Its
+`app.asar` SHA-256 is
+`c9747e6b9b0841d66d116220e3d29367ef7174daa4c52464906b4c8c69126477`.
+
+A new private offline profile displayed version 0.12.1-alpha.2 and The Commons
+with 57 objects at 60 FPS. The native check repeated mouse capture/Esc release,
+the Build shortcut, original cube addition, lone-minus draft rejection,
+completion to -1.5, Apply, Undo to 0, Redo to -1.5, and keyboard Local-axis/Move
+controls. The 58-object private test studio was retained, not published.
+The app quit normally with an empty log and successful owned cleanup. No Axis
+service, login or live-world mutation occurred. This narrow packaging check
+does not establish connected-native or historical-content parity.
+
+## 0.12.1-alpha.1 source candidate — binary publication held
+
+The initial public source tag is retained. GitHub Linux CI subsequently found
+six failures in native-zlib compression fixtures and exact generated-animation
+bundle reproduction. The macOS results below remain valid for that candidate,
+but its binary was not published. The corrected release uses a new alpha tag.
 
 This is a release-packaging revision of the v0.12.0 development milestone.
 It adds public-source hygiene, clean-checkout testing, CI, bundled license

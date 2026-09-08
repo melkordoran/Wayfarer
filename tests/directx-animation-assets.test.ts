@@ -1,4 +1,5 @@
 import { execFileSync } from 'node:child_process';
+import { createHash } from 'node:crypto';
 import { readFileSync, statSync } from 'node:fs';
 import { resolve } from 'node:path';
 import { pathToFileURL } from 'node:url';
@@ -110,6 +111,62 @@ describe('original DirectX salute asset generation', () => {
     const assets = directXAnimationAssets();
     expect(compressedAudit(assets.get('seqs/wf-x-salute-tzip.x')!)).toEqual(Buffer.from(assets.get('seqs/wf-x-salute.x')!.subarray(16)));
     expect(compressedAudit(assets.get('seqs/wf-x-salute-bzip.x')!)).toEqual(Buffer.from(assets.get('seqs/wf-x-salute-binary32.x')!.subarray(16)));
+  });
+
+  it('preserves the originally published Studio bytes independently of the native compressor', () => {
+    // Fixed before the portability fix; never regenerate this hash to excuse a
+    // host zlib producing a different encoding of the same animation.
+    const expectedSha256 = 'da69d14f57f1722eb8f4d6d3a787e956c2b9b77762428346ea9e5996f6d8ebfa';
+    const before = readFileSync(studioPath), modified = statSync(studioPath).mtimeMs;
+    const result = execFileSync(process.execPath, ['--input-type=module', '-e', `
+      import zlib from 'node:zlib';
+      import { syncBuiltinESMExports } from 'node:module';
+      import { createHash } from 'node:crypto';
+      zlib.deflateRawSync = () => { throw new Error('Native compressor must not define committed fixture bytes'); };
+      syncBuiltinESMExports();
+      const { directXAnimationStudioJson } = await import(${JSON.stringify(pathToFileURL(generator).href)});
+      process.stdout.write(createHash('sha256').update(directXAnimationStudioJson()).digest('hex'));
+    `], { encoding: 'utf8' });
+    expect(result).toBe(expectedSha256);
+    expect(createHash('sha256').update(before).digest('hex')).toBe(expectedSha256);
+    expect(readFileSync(studioPath)).toEqual(before); expect(statSync(studioPath).mtimeMs).toBe(modified);
+  });
+
+  it('rejects changed authored input instead of reusing an unrelated pinned stream', () => {
+    const before = readFileSync(studioPath), cosine = vi.spyOn(Math, 'cos').mockReturnValue(0);
+    try {
+      expect(() => directXAnimationAssets()).toThrow('does not match authored input; review and version the fixture');
+    } finally { cosine.mockRestore(); }
+    expect(readFileSync(studioPath)).toEqual(before);
+    expect(directXAnimationStudioBundle()).toEqual(bundle);
+  });
+
+  it.each(['compressed', 'decoded'])('independently rejects corrupted %s chunk data', corruption => {
+    // A child process confines builtin fault injection to this test and never
+    // rewrites the generator, committed JSON or any fixture on disk.
+    const result = execFileSync(process.execPath, ['--input-type=module', '-e', `
+      import zlib from 'node:zlib';
+      import { syncBuiltinESMExports } from 'node:module';
+      const inflate = zlib.inflateRawSync;
+      zlib.inflateRawSync = (bytes, options) => {
+        if (${JSON.stringify(corruption)} === 'compressed') {
+          const damaged = Buffer.from(bytes);
+          damaged[0] = (damaged[0] & ~6) | 6; // Reserved DEFLATE block type.
+          return inflate(damaged, options);
+        }
+        const decoded = inflate(bytes, options);
+        decoded[0] ^= 1; // Valid size is insufficient: every byte must match.
+        return decoded;
+      };
+      syncBuiltinESMExports();
+      const { directXAnimationAssets } = await import(${JSON.stringify(pathToFileURL(generator).href)});
+      try { directXAnimationAssets(); throw new Error('Corruption was accepted'); }
+      catch (error) {
+        if (${JSON.stringify(corruption)} === 'compressed' ? error.code !== 'Z_DATA_ERROR' : error.message !== 'Original compressed animation chunk differs from authored input.') throw error;
+        process.stdout.write('Corruption rejected');
+      }
+    `], { encoding: 'utf8' });
+    expect(result).toBe('Corruption rejected');
   });
 
   it.each(['UTC', 'America/Toronto', 'Pacific/Auckland'])('reproduces the14-entry Studio overlay read-only in %s', TZ => {

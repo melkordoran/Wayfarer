@@ -26,6 +26,24 @@ const dword = (value: number) => {
 };
 const chunk = (expanded: number, raw: Uint8Array) =>
   concat(word(expanded), word(raw.length + 2), utf8("CK"), raw);
+
+// An original RFC 1951 final stored block has exactly five bytes of overhead.
+// General-purpose zlib encoders may choose several blocks for incompressible
+// input, exceeding MSZIP's 32780-byte CK+DEFLATE envelope on some platforms.
+// Only valid-fixture construction uses this fallback; `chunk` deliberately
+// remains unconstrained so malformed-envelope tests still exercise the reader.
+const storedRaw = (data: Uint8Array) => {
+  if (!data.length || data.length > 32768)
+    throw new Error("Fixture MSZIP chunks must contain 1..32768 bytes");
+  return concat(
+    Uint8Array.of(1),
+    word(data.length),
+    word(data.length ^ 0xffff),
+    data,
+  );
+};
+const encodedChunk = (data: Uint8Array, raw: Uint8Array) =>
+  chunk(data.length, raw.length > 32778 ? storedRaw(data) : raw);
 const file = (
   bodySize: number,
   chunks: Uint8Array[],
@@ -66,7 +84,7 @@ function compress(
           ? undefined
           : body.subarray(Math.max(0, offset - 32768), offset),
     });
-    chunks.push(chunk(data.length, raw));
+    chunks.push(encodedChunk(data, raw));
   }
   const original = new TextDecoder().decode(input.subarray(0, 16));
   return file(
@@ -136,6 +154,32 @@ const triangle = utf8(
 );
 
 describe("bounded DirectX internal MSZIP envelopes", () => {
+  it("keeps valid fixture envelopes bounded independently of compressor block choices", () => {
+    const data = Uint8Array.from({ length: 32768 }, (_, i) => i & 255);
+    // Non-final empty stored blocks are valid DEFLATE but each costs five bytes.
+    const empty = Uint8Array.of(0, 0, 0, 255, 255);
+    const atLimit = concat(empty, storedRaw(data));
+    const oversized = concat(empty, atLimit);
+    expect(atLimit.length).toBe(32778);
+    expect(oversized.length).toBe(32783);
+    expect(new Uint8Array(inflateRawSync(oversized))).toEqual(data);
+    expect(encodedChunk(data, atLimit).subarray(6)).toEqual(atLimit);
+    expect(
+      decompressDirectX(
+        file(data.length, [encodedChunk(data, atLimit)]),
+      ).subarray(16),
+    ).toEqual(data);
+    expect(() =>
+      decompressDirectX(file(data.length, [chunk(data.length, oversized)])),
+    ).toThrow(/invalid compressed chunk size/);
+    const bounded = encodedChunk(data, oversized);
+    expect(new DataView(bounded.buffer).getUint16(2, true)).toBe(32775);
+    expect(bounded.subarray(6)).toEqual(storedRaw(data));
+    expect(
+      decompressDirectX(file(data.length, [bounded])).subarray(16),
+    ).toEqual(data);
+  });
+
   it("returns uncompressed bytes by identity and does not mutate compressed views", () => {
     expect(decompressDirectX(triangle)).toBe(triangle);
     const unrelated = utf8("ModelBegin");
@@ -206,9 +250,9 @@ describe("bounded DirectX internal MSZIP envelopes", () => {
     const packed = file(
       first.length + second.length + third.length,
       [
-        chunk(first.length, deflateRawSync(first)),
-        chunk(second.length, deflateRawSync(second, { dictionary: first })),
-        chunk(third.length, thirdCompressed),
+        encodedChunk(first, deflateRawSync(first)),
+        encodedChunk(second, deflateRawSync(second, { dictionary: first })),
+        encodedChunk(third, thirdCompressed),
       ],
       "bzip",
     );
@@ -255,11 +299,30 @@ describe("bounded DirectX internal MSZIP envelopes", () => {
   });
 
   it("enforces lower caller limits against input and reconstructed bytes", () => {
-    const packed = compress(triangle);
-    expect(decompressDirectX(packed, triangle.length)).toEqual(triangle);
-    expect(() => decompressDirectX(packed, triangle.length - 1)).toThrow(
+    // Fixed literal A, length 258 / distance 1, end marker. The encoded input is
+    // unambiguously smaller than the 275-byte reconstruction on every platform.
+    const raw = new Writer()
+      .write(1, 1)
+      .write(1, 2)
+      .fixed(65)
+      .fixed(285)
+      .code(0, 5)
+      .fixed(256)
+      .finish();
+    const original = concat(
+      utf8("xof 0303txt 0032"),
+      new Uint8Array(259).fill(65),
+    );
+    const packed = file(259, [chunk(259, raw)]);
+    expect(packed.length).toBeLessThan(original.length - 1);
+    expect(decompressDirectX(packed, original.length)).toEqual(original);
+    expect(() => decompressDirectX(packed, original.length - 1)).toThrow(
       /expanded.*limit/,
     );
+    // A small stored stream has more framing bytes than output. The input
+    // budget must win, independently of the expanded-size budget above.
+    const framed = file(1, [chunk(1, storedRaw(utf8("A")))]);
+    expect(() => decompressDirectX(framed, 17)).toThrow(/input exceeds/);
     expect(() => decompressDirectX(triangle, triangle.length - 1)).toThrow(
       /input exceeds/,
     );

@@ -40,6 +40,11 @@ avatar's explicit list changes; existing avatar and gesture indices are stable.
 
 ## Verification workflow
 
+The original compressed motion fixtures are pinned: native zlib versions may
+encode the same authored data differently. Generation checks authored-body
+hashes and independently inflates each original chunk, preserving the committed
+Studio bytes. Changed authored animations require deliberate fixture versioning.
+
 ```sh
 node scripts/directx-animation-assets.mjs --studio --check
 npm test -- tests/directx-animation.test.ts tests/directx-animation-assets.test.ts tests/studio-avatar-assets.test.ts

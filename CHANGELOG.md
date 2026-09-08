@@ -1,6 +1,18 @@
 # Changelog
 
-## 0.12.1-alpha.1 — first public prerelease
+## 0.12.1-alpha.2 — public prerelease
+
+The alpha.1 source tag is preserved, but its binary release was held after
+Linux CI exposed platform-dependent generated-fixture checks. The corrected
+public release uses a new version and tag; no published artifact is replaced.
+
+- Keep MSZIP test chunks inside the format's size bound across native zlib
+  versions, with independent exact-boundary and input/output-budget tests.
+- Preserve original animation fixture streams independently of host compressor
+  output; validate authored-body hashes and every independently inflated chunk.
+- Original Studio asset bytes and runtime decoder/security limits are unchanged.
+
+## 0.12.1-alpha.1 — initial public source candidate
 
 Public-release preparation of the tested v0.12.0 development milestone.
 

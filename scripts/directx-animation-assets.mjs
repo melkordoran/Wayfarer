@@ -3,7 +3,8 @@
  * Coordinates are RH/+Y up; the selected Microsoft X encoding uses WXYZ with
  * conjugated vector components. This is not historical AW exporter evidence.
  */
-import { deflateRawSync } from 'node:zlib';
+import { createHash } from 'node:crypto';
+import { inflateRawSync } from 'node:zlib';
 import { dirname, join, resolve } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { lstatSync, readFileSync, realpathSync } from 'node:fs';
@@ -82,20 +83,53 @@ function binaryAnimation(definition, floatBits) {
   return concatenate(parts);
 }
 
-/** Original X-envelope fixture writer using Node's independent zlib, not the
- * production decoder/validator. Deliberately small chunks exercise dictionary
- * continuation across more than one chunk with bounded authored input only.
+/** Original compressed transport fixtures, first authored with zlib 1.2.12.
+ * DEFLATE has no canonical compressor output: official Node 22.22.2's bundled
+ * zlib 1.3.1-e00f703 produces different bytes from the same authored input.
+ * Preserve the already published original streams rather than silently
+ * rewriting studio-directx-animation-data.json for the host compressor.
+ * These are NOT retail/sample assets or bytes read from the generated bundle.
+ * Each body's SHA-256 and every independently inflated chunk must still match
+ * the typed-record serializers; changing the animation requires an
+ * explicit new fixture version, not an unchecked reuse of compressed bytes.
+ */
+const COMPRESSED_ANIMATION_FIXTURES = Object.freeze({
+  tzip: Object.freeze({
+    sha256: '30727a40e7844324441434341e768f7ec87e385748388a1c79c723ecc32bbcd8',
+    chunks: Object.freeze([
+      'rVJdS8NAEHwv9D/sD6hxb++bPEkfRSpU0LcSk2sNxqQmqaUU/7vXxNS0iMVS7jiW2Zm5PeaGg+trmJTpIs2jDB6jzTwqXQlVlK1qF8B4jAFMXebi2iVwl8ZlURXzGp7gfRXVrszTIgeXx0WS5otgOLjJ07eo9uDU1XvbznXamMJ2OADYER/S+LW697iLizyBLXAM4bPrNjYtGXwvWs+WLvtIq5bR40yWu7PyHBbu9nH/1m06GwAMu4rCH0yEbIS7FYajDmV0gH+zG/M/ZqxeilWWuHKWXWpOc2JO/jssyMMYGKORoeGcaUNEDe0KA6GYFkYxTlwiF32daXQaNUOlDWNGSWE63SGsezpN5+mMaHWWc8m5QLLMz9TpFBqtmCCLviDWjwfbC62SlqQhRcai2l/oIcMsCul58lB4Vq4uey7WlwvVnvx87eMk10xZiT4sIt09jiNqlNr6hiDNjz/Df1L4Ag==',
+      'rZRRCgIxDESv1CaTSXIcQcH7n8Cs7haq+2MV+hWYMp15zUzLyD3Iyg1NPQDNTz60Eg9F8UNrechSNLxMi/UucYLHt7KdDnM1J5RafYLDZc9u0gCJyJQzOuabR4CTjZ/huN8u13+RwcXv/qol041oVuVlCLa3Nj5nrg50sTcduabzWFiadR4=',
+    ]),
+  }),
+  bzip: Object.freeze({
+    sha256: '751e4b0735e1d27ee05c722c81bce735344e6091c7c429c5251900dea75fa178',
+    chunks: Object.freeze([
+      'Y2TgYWBgcMzLzE0syczPC04tYWQQA4r4F2WmZ+Yl5oQnVqYlFqUWBSfmlJakcjEwMghB1YdkJmcXBwBlUpPz81K4GJgZ5IAy3EAVnMgmcjFwQYUSy+MLUnPKMotBagSQ1fgXgMhikBmMQHEICVKF4jbv1EqQCgawCiYwCWGzAEl2MMnA0GDPgAANzAwVBFRw43IxL8TFxRn5pTkpqUXxOdRwNQeRrpYjqEILTYWKcDJcRUDWm33MDAZoKj6zmMJVANn7mRk8CKoIQVNhIukNV3HqujRQRRqaildu5XAV75pb9lEQA1yQGEjNScovp07wcxIZ/DxoKk6rlcBVyHybuQ8zgjCDTgvDFga4iuubY/djRpDo+8N2MBVxzTlYIghTBXoEvbgqhHDH5kAsEQTUB1cBNA8A',
+      'oySC2CERlJGamEKN2GHDFzsNMOfgzBxIKtBDNiah3r76Tt9ehAongir8CNpSQUAFNxgCAA==',
+    ]),
+  }),
+});
+
+/** Assemble the original X envelopes from bounded, independently verified
+ * chunks. No production decoder/validator or platform compressor is used.
+ * Small chunks retain the original cross-chunk dictionary witness.
  */
 function compressedAnimation(bytes, mode) {
   const header = bytes.slice(0, 16);
   header.set(utf8(mode), 8);
   const body = bytes.subarray(16), parts = [header, dword(bytes.length)];
+  const fixture = COMPRESSED_ANIMATION_FIXTURES[mode];
+  if (!fixture || createHash('sha256').update(body).digest('hex') !== fixture.sha256) {
+    throw new Error('Original compressed animation fixture does not match authored input; review and version the fixture.');
+  }
   for (let offset = 0; offset < body.length; offset += 1024) {
     const chunk = body.subarray(offset, offset + 1024);
-    const compressed = new Uint8Array(deflateRawSync(chunk, {
-      level: 9,
+    const compressed = Buffer.from(fixture.chunks[offset / 1024], 'base64');
+    const decoded = inflateRawSync(compressed, {
+      maxOutputLength: chunk.length,
       ...(offset ? { dictionary: body.subarray(Math.max(0, offset - 32768), offset) } : {}),
-    }));
+    });
+    if (!decoded.equals(Buffer.from(chunk))) throw new Error('Original compressed animation chunk differs from authored input.');
     parts.push(word(chunk.length), word(compressed.length + 2), Uint8Array.of(0x43, 0x4b), compressed);
   }
   return concatenate(parts);

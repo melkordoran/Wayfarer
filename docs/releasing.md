@@ -26,9 +26,9 @@ the fixture. Follow [native QA](native-qa.md) and keep every old package intact.
 For the current public alpha:
 
 ```sh
-npx electron-builder --mac dir --arm64 -c.directories.output=release/0.12.1-alpha.1
-node scripts/verify-mac-package.mjs release/0.12.1-alpha.1/mac-arm64/Wayfarer.app 0.12.1-alpha.1
-npx tsx scripts/axis-isolated-native.ts release/0.12.1-alpha.1/mac-arm64/Wayfarer.app --offline
+npx electron-builder --mac dir --arm64 -c.directories.output=release/0.12.1-alpha.2
+node scripts/verify-mac-package.mjs release/0.12.1-alpha.2/mac-arm64/Wayfarer.app 0.12.1-alpha.2
+npx tsx scripts/axis-isolated-native.ts release/0.12.1-alpha.2/mac-arm64/Wayfarer.app --offline
 ```
 
 Use a new output directory. The verifier checks architecture, ad-hoc signature,
